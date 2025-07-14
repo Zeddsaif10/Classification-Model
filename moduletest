@@ -1,0 +1,39 @@
+import os
+import random
+from PIL import Image
+
+def seggregator_new(save_path, random_id, main_dir, filename, main1_file, hospital_id):
+    """
+    Dummy implementation that 'processes' extracted images.
+    Returns a dictionary with some dummy metadata.
+    """
+    processed_data = {
+        "status": "processed",
+        "save_path": save_path,
+        "random_id": random_id,
+        "filename": filename,
+        "hospital_id": hospital_id,
+        "num_images": len([f for f in os.listdir(save_path) if os.path.isfile(os.path.join(save_path, f))])
+    }
+    return processed_data
+
+def converting_to_image_new(pdf_path, save_path, folder):
+    """
+    Dummy implementation to convert a PDF into one placeholder image.
+    In reality, you can use PyMuPDF or pdf2image.
+    """
+    # Create a dummy image file to simulate conversion
+    img = Image.new("RGB", (800, 1000), color=(random.randint(0,255), random.randint(0,255), random.randint(0,255)))
+    output_image_path = os.path.join(save_path, "page_1.jpg")
+    img.save(output_image_path)
+    print(f"Dummy PDF converted to {output_image_path}")
+
+def save_image_of_pdf_new(pdf_path, save_folder):
+    """
+    Dummy implementation to save images from a PDF.
+    """
+    # For illustration, just create one dummy image
+    img = Image.new("RGB", (600, 800), color=(random.randint(0,255), random.randint(0,255), random.randint(0,255)))
+    output_image_path = os.path.join(save_folder, "saved_page_1.jpg")
+    img.save(output_image_path)
+    print(f"Dummy PDF page saved as {output_image_path}")
